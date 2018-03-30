@@ -1,15 +1,14 @@
-package com.example.compiler;
+package com.mobiledoctor.compiler;
 
 /**
  * Created by zhaojian on 2018/3/30.
  */
 
-import com.example.annotation.METHOD;
+import com.mobiledoctor.annotation.METHOD;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeName;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.lang.model.element.ExecutableElement;
@@ -95,7 +94,7 @@ public class MethodEntity
 
         ReturnEntity subSubEntity = subSubEntityList.get(0);
         thirdReturnType = ClassName.get(subSubEntity.getPackageName(), subSubEntity.getSimpleName());
-        subReturnType = ParameterizedTypeName.get(second, thirdReturnType);
+        subReturnType = ParameterizedTypeName.get(first, thirdReturnType);
         returnType = ParameterizedTypeName.get(first, subReturnType);
 
     }

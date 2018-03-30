@@ -1,6 +1,6 @@
-package com.example.zhaojian.sbysaptdemo;
+package com.mobiledoctor.zhaojian.sbysaptdemo;
 
-import com.example.annotation.METHOD;
+import com.mobiledoctor.annotation.METHOD;
 
 import java.util.List;
 import java.util.Set;

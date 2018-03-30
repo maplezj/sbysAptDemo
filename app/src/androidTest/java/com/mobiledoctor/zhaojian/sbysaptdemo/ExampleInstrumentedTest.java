@@ -1,4 +1,4 @@
-package com.example.zhaojian.sbysaptdemo;
+package com.mobiledoctor.zhaojian.sbysaptdemo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

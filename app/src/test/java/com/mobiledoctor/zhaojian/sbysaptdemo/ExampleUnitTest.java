@@ -1,4 +1,4 @@
-package com.example.zhaojian.sbysaptdemo;
+package com.mobiledoctor.zhaojian.sbysaptdemo;
 
 import org.junit.Test;
 

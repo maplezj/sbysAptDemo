@@ -1,6 +1,6 @@
-package com.example.compiler;
+package com.mobiledoctor.compiler;
 
-import com.example.annotation.METHOD;
+import com.mobiledoctor.annotation.METHOD;
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
@@ -9,10 +9,7 @@ import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
-import java.lang.reflect.ParameterizedType;
-import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
 
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
@@ -26,12 +23,7 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
-import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
-import javax.lang.model.element.TypeParameterElement;
-import javax.lang.model.element.VariableElement;
-import javax.lang.model.type.DeclaredType;
-import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 
@@ -125,11 +117,11 @@ public class HttpProcessor extends AbstractProcessor
                 .returns(methodEntity.getSubReturnType())
                 .addStatement("$T requestParams = new $T()", requestParam, requestParam)
                 .addStatement("requestParams.paramMap = paramMap")
-                .addStatement("requestParams.method = $S",methodEntity.getAnnotationValue())
-                .addStatement("return $T.getAPI($T.class).submitCommonBusiness(requestParams)" +
+                .addStatement("requestParams.method = $S", methodEntity.getAnnotationValue())
+                .addStatement("return $T.getAPI($T.class).$L(requestParams)" +
                                 ".onErrorReturn(new $T())" +
                                 ".flatMap(new $T())",
-                        apiManger, requestAPI, httpErrorType, preProcessFlatMapType)
+                        apiManger, requestAPI, executableElement.getSimpleName(), httpErrorType, preProcessFlatMapType)
                 .addParameter(inputType, "paramMap");
         return methodBuilder.build();
     }

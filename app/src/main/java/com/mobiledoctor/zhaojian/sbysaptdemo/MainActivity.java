@@ -1,4 +1,4 @@
-package com.example.zhaojian.sbysaptdemo;
+package com.mobiledoctor.zhaojian.sbysaptdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

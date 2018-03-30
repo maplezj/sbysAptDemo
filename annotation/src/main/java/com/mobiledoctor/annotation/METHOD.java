@@ -1,4 +1,4 @@
-package com.example.annotation;
+package com.mobiledoctor.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
